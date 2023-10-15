@@ -16,6 +16,8 @@ class MainVC: UIViewController {
     var viewModel = MainViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         _ = viewModel.foodList.subscribe(onNext: { foodList in
@@ -50,7 +52,7 @@ class MainVC: UIViewController {
     }
     
 }
-extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
+extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.foodlist.count
     }
@@ -58,8 +60,19 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let food = self.foodlist[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! CollectionViewCell
+        
+        cell.layer.borderWidth = 5.0
+        cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
+        
+        cell.layer.cornerRadius = 2.0
+        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
+
+        cell.layer.shadowColor = UIColor.white.cgColor
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowRadius = 5.0
+
         cell.foodNameLbl.text = food.yemek_adi
-        cell.priceLbl.text = food.yemek_fiyat
+        cell.priceLbl.text = "\(food.yemek_fiyat!) TL"
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)"){
             DispatchQueue.main.async {
                 cell.imageView.kf.setImage(with: url)

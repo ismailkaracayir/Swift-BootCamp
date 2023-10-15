@@ -14,6 +14,8 @@ class FoodDetailsVC: UIViewController {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var foodItemLbl: UILabel!
+    var viewModel = MainViewModel()
+
     var food : Yemekler?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,17 +39,17 @@ class FoodDetailsVC: UIViewController {
 
     @IBAction func backBtn(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+   
 
     }
     
     @IBAction func stepperBtn(_ sender: UIStepper) {
         foodItemLbl.text = String(Int(sender.value))
-        if let foodItemCountText = food?.yemek_fiyat, // foodItemLbl.text değerini kontrol et
-           let foodItemCount = Int(foodItemCountText) { // tamsayıya dönüştür
+        if let foodItemCountText = food?.yemek_fiyat,
+           let foodItemCount = Int(foodItemCountText) {
            let totalPrice = Int(sender.value * Double(foodItemCount))
            allPriceLbl.text = "\(String(totalPrice))TL"
         } else {
-           // foodItemLbl.text uygun bir değere dönüşmüyorsa veya nil ise burası çalışır
            allPriceLbl.text = "Hatalı Veri"
         }
       
@@ -56,6 +58,9 @@ class FoodDetailsVC: UIViewController {
     }
  
     @IBAction func addToCartBtn(_ sender: Any) {
+        if let name = nameLbl.text , let price = priceLbl.text ,let itemCount = Int(foodItemLbl.text!), let url = self.food?.yemek_resim_adi{
+            self.viewModel.addToCard(yemek_adi: name, yemek_fiyat: price, yemek_resim_adi: url, yemek_siparis_adet: itemCount)
+        }
     }
     
 }

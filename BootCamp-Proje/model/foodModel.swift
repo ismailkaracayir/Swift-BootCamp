@@ -26,3 +26,9 @@ struct Yemekler: Codable {
         self.yemek_fiyat = yemek_fiyat
     }
 }
+
+
+struct CrudResponse : Codable {
+    var success :Int?
+    var message : String?
+}
