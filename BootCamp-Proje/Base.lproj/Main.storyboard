@@ -175,7 +175,7 @@
                     <connections>
                         <outlet property="collectionView" destination="msl-Bd-ni5" id="AD7-sb-lwI"/>
                         <outlet property="searchBar" destination="u9p-Yn-dsh" id="9QQ-ny-EZf"/>
-                        <segue destination="oYN-TB-QgT" kind="show" identifier="toDetail" id="RN0-uI-jJj"/>
+                        <segue destination="oYN-TB-QgT" kind="show" identifier="toDetail" id="jo1-ki-ZPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -231,18 +231,164 @@
             </objects>
             <point key="canvasLocation" x="2842.0289855072465" y="821.65178571428567"/>
         </scene>
-        <!--Item-->
+        <!--Ürün Detay-->
         <scene sceneID="Ey2-Kv-ekH">
             <objects>
                 <viewController id="oYN-TB-QgT" customClass="FoodDetailsVC" customModule="BootCamp_Proje" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQr-JU-YuJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A_star" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-z8-OZ8">
+                                <rect key="frame" x="82" y="194" width="250" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Lgc-Pf-nGu"/>
+                                    <constraint firstAttribute="height" constant="200" id="qhH-Tc-yHE"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hrE-kX-aYy">
+                                <rect key="frame" x="133.5" y="434" width="147" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55 TL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEo-Tn-8av">
+                                        <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Izgara Somon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nI9-VD-bjs">
+                                        <rect key="frame" x="0.0" y="50" width="147" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="c83-dS-BgV">
+                                <rect key="frame" x="130" y="564" width="154" height="32"/>
+                                <subviews>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="p0q-W6-Zhr">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="32"/>
+                                        <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="stepperBtn:" destination="oYN-TB-QgT" eventType="valueChanged" id="gfO-Me-tCk"/>
+                                        </connections>
+                                    </stepper>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qD-CI-P1s">
+                                        <rect key="frame" x="101" y="0.0" width="10" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVF-gg-BIo">
+                                        <rect key="frame" x="118" y="0.0" width="36" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v9r-3A-2sA">
+                                <rect key="frame" x="53" y="616" width="308" height="18"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hızlı Teslimat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-pC-rr1">
+                                        <rect key="frame" x="0.0" y="0.0" width="90.5" height="18"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ücretsiz Teslimat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dr5-56-8mR">
+                                        <rect key="frame" x="100.5" y="0.0" width="117.5" height="18"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%10 indirim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wit-dZ-aZQ">
+                                        <rect key="frame" x="228" y="0.0" width="80" height="18"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="8tP-4N-5OV">
+                                <rect key="frame" x="43" y="674" width="328.5" height="34.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdM-pT-zNq">
+                                        <rect key="frame" x="0.0" y="0.0" width="164.5" height="34.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toplam Tutar : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9V-fJ-CcO">
+                                                <rect key="frame" x="0.0" y="0.0" width="112.5" height="34.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 TL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f71-W9-qvs">
+                                                <rect key="frame" x="112.5" y="0.0" width="52" height="34.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUk-vq-n6t">
+                                        <rect key="frame" x="214.5" y="0.0" width="114" height="34.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sepete Ekle">
+                                            <backgroundConfiguration key="background">
+                                                <color key="backgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </backgroundConfiguration>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addToCartBtn:" destination="oYN-TB-QgT" eventType="touchUpInside" id="fKM-km-W5T"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bRQ-d4-149"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="v9r-3A-2sA" firstAttribute="top" secondItem="c83-dS-BgV" secondAttribute="bottom" constant="20" id="2qb-5F-Pm2"/>
+                            <constraint firstItem="8tP-4N-5OV" firstAttribute="centerX" secondItem="SQr-JU-YuJ" secondAttribute="centerX" id="5nj-Tt-j64"/>
+                            <constraint firstItem="XFx-z8-OZ8" firstAttribute="centerX" secondItem="SQr-JU-YuJ" secondAttribute="centerX" id="5ob-kf-bOH"/>
+                            <constraint firstItem="8tP-4N-5OV" firstAttribute="top" secondItem="v9r-3A-2sA" secondAttribute="bottom" constant="40" id="JWy-ZX-9bW"/>
+                            <constraint firstItem="hrE-kX-aYy" firstAttribute="centerX" secondItem="SQr-JU-YuJ" secondAttribute="centerX" id="K2d-Xh-aJL"/>
+                            <constraint firstItem="c83-dS-BgV" firstAttribute="top" secondItem="hrE-kX-aYy" secondAttribute="bottom" constant="50" id="Loc-FR-Udx"/>
+                            <constraint firstItem="c83-dS-BgV" firstAttribute="centerX" secondItem="SQr-JU-YuJ" secondAttribute="centerX" id="ThJ-PW-tlZ"/>
+                            <constraint firstItem="v9r-3A-2sA" firstAttribute="centerX" secondItem="SQr-JU-YuJ" secondAttribute="centerX" id="YE6-fM-43P"/>
+                            <constraint firstItem="hrE-kX-aYy" firstAttribute="top" secondItem="XFx-z8-OZ8" secondAttribute="bottom" constant="40" id="lL3-dz-F12"/>
+                            <constraint firstItem="XFx-z8-OZ8" firstAttribute="top" secondItem="bRQ-d4-149" secondAttribute="top" constant="50" id="wNU-Uh-HYd"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="SBJ-Wn-cq4"/>
-                    <navigationItem key="navigationItem" id="Jmu-qI-HKo"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Ürün Detay" largeTitleDisplayMode="always" id="CGg-0X-W1u">
+                        <barButtonItem key="leftBarButtonItem" title="Geri" id="Eyc-mw-TZv">
+                            <color key="tintColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="backBtn:" destination="oYN-TB-QgT" id="8o1-A5-2wT"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Teslimat Adres" image="location" catalog="system" id="gpO-bA-DWE">
+                                <color key="tintColor" red="1" green="0.60659026680000006" blue="0.2326183916" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </barButtonItem>
+                            <barButtonItem title="Serdivan Ev" id="sCL-rE-hqQ">
+                                <color key="tintColor" systemColor="labelColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="allPriceLbl" destination="f71-W9-qvs" id="8Uu-po-AF3"/>
+                        <outlet property="foodItemLbl" destination="2qD-CI-P1s" id="NKG-VF-z3c"/>
+                        <outlet property="imageView" destination="XFx-z8-OZ8" id="oro-r9-WlR"/>
+                        <outlet property="nameLbl" destination="nI9-VD-bjs" id="SoI-b5-u7w"/>
+                        <outlet property="priceLbl" destination="bEo-Tn-8av" id="1jF-Ju-8Dx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arm-61-Rpq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,6 +465,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

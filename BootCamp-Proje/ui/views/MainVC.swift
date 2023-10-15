@@ -40,6 +40,14 @@ class MainVC: UIViewController {
                 
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail"{
+            if let food = sender as? Yemekler {
+                let goToVC = segue.destination as! FoodDetailsVC
+                goToVC.food = food
+            }
+        }
+    }
     
 }
 extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
@@ -61,13 +69,10 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource {
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let food = foodlist[indexPath.row]
+        performSegue(withIdentifier: "toDetail", sender: food)
+        self.collectionView.deselectItem(at: indexPath, animated: true)
+    }
 }
-  /*
-   
-   let cell = tableView.dequeueReusableCell(withIdentifier: "kisilerHucre") as! kisilerHucre
-   cell.labelKisiAd.text = kisi.kisi_ad
-   cell.labelKisiTel.text = kisi.kisi_tel
-   return cell
 
-   */
