@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A23C434E2ADABF6100C766E9 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C434D2ADABF6100C766E9 /* CollectionViewCell.swift */; };
+		A23C43502ADADD3600C766E9 /* foodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C434F2ADADD3600C766E9 /* foodModel.swift */; };
+		A23C43532ADAE48B00C766E9 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A23C43522ADAE48B00C766E9 /* RxSwift */; };
+		A23C43562ADAE4A600C766E9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A23C43552ADAE4A600C766E9 /* Alamofire */; };
+		A23C43582ADAE66300C766E9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C43572ADAE66300C766E9 /* WebService.swift */; };
+		A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C43592ADAEACF00C766E9 /* food_repository.swift */; };
+		A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */; };
+		A23C435F2ADAF2D400C766E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A23C435E2ADAF2D400C766E9 /* Kingfisher */; };
 		A2920D522AD965A20097D557 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D512AD965A20097D557 /* AppDelegate.swift */; };
 		A2920D542AD965A20097D557 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D532AD965A20097D557 /* SceneDelegate.swift */; };
 		A2920D562AD965A20097D557 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D552AD965A20097D557 /* MainVC.swift */; };
@@ -20,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A23C434D2ADABF6100C766E9 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		A23C434F2ADADD3600C766E9 /* foodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodModel.swift; sourceTree = "<group>"; };
+		A23C43572ADAE66300C766E9 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		A23C43592ADAEACF00C766E9 /* food_repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = food_repository.swift; sourceTree = "<group>"; };
+		A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_viewmodel.swift; sourceTree = "<group>"; };
 		A2920D4E2AD965A20097D557 /* BootCamp-Proje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BootCamp-Proje.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2920D512AD965A20097D557 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2920D532AD965A20097D557 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,12 +52,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23C435F2ADAF2D400C766E9 /* Kingfisher in Frameworks */,
+				A23C43532ADAE48B00C766E9 /* RxSwift in Frameworks */,
+				A23C43562ADAE4A600C766E9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A23C434C2ADABF3900C766E9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				A23C434D2ADABF6100C766E9 /* CollectionViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		A2920D452AD965A20097D557 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +106,7 @@
 		A2920D682AD9660A0097D557 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				A23C434F2ADADD3600C766E9 /* foodModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -89,6 +114,7 @@
 		A2920D692AD9661B0097D557 /* veiwModel */ = {
 			isa = PBXGroup;
 			children = (
+				A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */,
 			);
 			path = veiwModel;
 			sourceTree = "<group>";
@@ -96,6 +122,7 @@
 		A2920D6A2AD966240097D557 /* repository */ = {
 			isa = PBXGroup;
 			children = (
+				A23C43592ADAEACF00C766E9 /* food_repository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -103,6 +130,7 @@
 		A2920D6B2AD966490097D557 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				A23C43572ADAE66300C766E9 /* WebService.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -110,6 +138,7 @@
 		A2920D6C2AD966680097D557 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A23C434C2ADABF3900C766E9 /* cell */,
 				A2920D6D2AD967010097D557 /* views */,
 				A2920D692AD9661B0097D557 /* veiwModel */,
 			);
@@ -143,6 +172,11 @@
 			dependencies = (
 			);
 			name = "BootCamp-Proje";
+			packageProductDependencies = (
+				A23C43522ADAE48B00C766E9 /* RxSwift */,
+				A23C43552ADAE4A600C766E9 /* Alamofire */,
+				A23C435E2ADAF2D400C766E9 /* Kingfisher */,
+			);
 			productName = "BootCamp-Proje";
 			productReference = A2920D4E2AD965A20097D557 /* BootCamp-Proje.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +205,11 @@
 				Base,
 			);
 			mainGroup = A2920D452AD965A20097D557;
+			packageReferences = (
+				A23C43512ADAE48B00C766E9 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				A23C43542ADAE4A600C766E9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A23C435D2ADAF2D300C766E9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = A2920D4F2AD965A20097D557 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,12 +237,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23C43502ADADD3600C766E9 /* foodModel.swift in Sources */,
 				A2920D562AD965A20097D557 /* MainVC.swift in Sources */,
+				A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */,
+				A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */,
 				A2920D6F2AD968080097D557 /* FoodDetailsVC.swift in Sources */,
+				A23C434E2ADABF6100C766E9 /* CollectionViewCell.swift in Sources */,
 				A2920D522AD965A20097D557 /* AppDelegate.swift in Sources */,
 				A2920D542AD965A20097D557 /* SceneDelegate.swift in Sources */,
 				A2920D5C2AD965A20097D557 /* BootCamp_Proje.xcdatamodeld in Sources */,
 				A2920D732ADA7B8D0097D557 /* FavoriteVC.swift in Sources */,
+				A23C43582ADAE66300C766E9 /* WebService.swift in Sources */,
 				A2920D712AD9684D0097D557 /* AddToCardVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +464,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A23C43512ADAE48B00C766E9 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		A23C43542ADAE4A600C766E9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		A23C435D2ADAF2D300C766E9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A23C43522ADAE48B00C766E9 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A23C43512ADAE48B00C766E9 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		A23C43552ADAE4A600C766E9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A23C43542ADAE4A600C766E9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A23C435E2ADAF2D400C766E9 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A23C435D2ADAF2D300C766E9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A2920D5A2AD965A20097D557 /* BootCamp_Proje.xcdatamodeld */ = {
