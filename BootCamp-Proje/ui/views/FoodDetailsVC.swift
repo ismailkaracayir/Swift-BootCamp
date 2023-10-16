@@ -58,8 +58,9 @@ class FoodDetailsVC: UIViewController {
     }
  
     @IBAction func addToCartBtn(_ sender: Any) {
-        if let name = nameLbl.text , let price = priceLbl.text ,let itemCount = Int(foodItemLbl.text!), let url = self.food?.yemek_resim_adi{
-            self.viewModel.addToCard(yemek_adi: name, yemek_fiyat: price, yemek_resim_adi: url, yemek_siparis_adet: itemCount)
+        print("AddToCart btn tıklandı")
+        if let name = nameLbl.text , let price = Int(food?.yemek_fiyat ?? "") ,let itemCount = Int(foodItemLbl.text!), let url = self.food?.yemek_resim_adi{
+            self.viewModel.addToCard(yemek_adi: name,yemek_fiyat: price, yemek_resim_adi: url, yemek_siparis_adet: itemCount)
         }
     }
     

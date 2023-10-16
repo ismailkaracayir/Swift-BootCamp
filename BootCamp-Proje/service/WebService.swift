@@ -9,7 +9,10 @@ import Foundation
 import Alamofire
 import RxSwift
 class WebService {
- var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
+    var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
+    var cardList = BehaviorSubject<[sepet_yemekler]>(value:[sepet_yemekler]())
+    let userName = "ismailkara01"
+
     init() {
         allFoodList()
     }
@@ -36,10 +39,10 @@ class WebService {
     }
     
     
-    func addToCard(yemek_adi : String , yemek_fiyat: String , yemek_resim_adi : String, yemek_siparis_adet: Int)  {
+    func addToCard(yemek_adi : String , yemek_resim_adi : String, yemek_fiyat: Int , yemek_siparis_adet: Int)  {
         
-        print("web servis çalıştı")
-        let userName = "ismailKara01"
+        print("addToCard servis çalıştı")
+        print("\(yemek_adi)---\(yemek_resim_adi)---\(yemek_fiyat)---\(yemek_siparis_adet)---\(userName)---")
         let params : Parameters = ["yemek_adi": yemek_adi,"yemek_resim_adi": yemek_resim_adi,"yemek_fiyat":yemek_fiyat,"yemek_siparis_adet":yemek_siparis_adet , "kullanici_adi":userName]
 
        AF.request("http://kasimadalan.pe.hu/yemekler/sepeteYemekEkle.php",method: .post,parameters: params ).response {
@@ -48,8 +51,9 @@ class WebService {
 
                do{
                    let response = try JSONDecoder().decode(CrudResponse.self, from: data)
-                   print("gelen message\(response.message!)")
-                   print("gelen success\(response.success!)")
+                   print("gelen message: \(response.message!)")
+                   print("gelen success: \(response.success!)")
+                   if response.success == 1 {self.allCardList()}
                    
                }catch{
                    print("hata oluştu")
@@ -60,6 +64,54 @@ class WebService {
        }
         
          
+    }
+    
+    
+    func allCardList (){
+        print("allCardList web servis çalıştı")
+        let param : Parameters = ["kullanici_adi":userName]
+       AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php",method: .post,parameters: param).response {
+           response in
+           if let data = response.data {
+               
+
+               do{
+                   let response = try JSONDecoder().decode(Welcome2.self, from: data)
+                   if let list = response.sepet_yemekler {
+                      
+                       self.cardList.onNext(list)
+                   }
+               }catch{
+                   print("hata oluştu")
+                   print(error.localizedDescription)
+               }
+               
+           }
+       }
+        
+    }
+    
+    
+    func deleteFood (sepet_yemek_id : Int){
+        print("deleteFood web servis çalıştı")
+        let param : Parameters = ["sepet_yemek_id":sepet_yemek_id,"kullanici_adi":userName]
+       AF.request("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php",method: .post,parameters: param).response {
+           response in
+           if let data = response.data {
+
+               do{
+                   let response = try JSONDecoder().decode(CrudResponse.self, from: data)
+                   print("\(response.message!)")
+                   print("\(response.success!)")
+                   if response.success == 1 {self.allCardList()}
+               }catch{
+                   print("hata oluştu")
+                   print(error.localizedDescription)
+               }
+               
+           }
+       }
+        
     }
     
     

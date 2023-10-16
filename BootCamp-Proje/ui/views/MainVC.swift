@@ -66,7 +66,6 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         
         cell.layer.cornerRadius = 2.0
         cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-
         cell.layer.shadowColor = UIColor.white.cgColor
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 5.0

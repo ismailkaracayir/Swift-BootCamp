@@ -15,6 +15,7 @@
 		A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C43592ADAEACF00C766E9 /* food_repository.swift */; };
 		A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */; };
 		A23C435F2ADAF2D400C766E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A23C435E2ADAF2D400C766E9 /* Kingfisher */; };
+		A23C43612ADD421B00C766E9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C43602ADD421B00C766E9 /* TableViewCell.swift */; };
 		A2920D522AD965A20097D557 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D512AD965A20097D557 /* AppDelegate.swift */; };
 		A2920D542AD965A20097D557 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D532AD965A20097D557 /* SceneDelegate.swift */; };
 		A2920D562AD965A20097D557 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D552AD965A20097D557 /* MainVC.swift */; };
@@ -33,6 +34,7 @@
 		A23C43572ADAE66300C766E9 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		A23C43592ADAEACF00C766E9 /* food_repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = food_repository.swift; sourceTree = "<group>"; };
 		A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_viewmodel.swift; sourceTree = "<group>"; };
+		A23C43602ADD421B00C766E9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		A2920D4E2AD965A20097D557 /* BootCamp-Proje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BootCamp-Proje.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2920D512AD965A20097D557 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2920D532AD965A20097D557 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				A23C434D2ADABF6100C766E9 /* CollectionViewCell.swift */,
+				A23C43602ADD421B00C766E9 /* TableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23C43612ADD421B00C766E9 /* TableViewCell.swift in Sources */,
 				A23C43502ADADD3600C766E9 /* foodModel.swift in Sources */,
 				A2920D562AD965A20097D557 /* MainVC.swift in Sources */,
 				A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */,
