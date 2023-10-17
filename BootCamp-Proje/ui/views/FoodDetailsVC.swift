@@ -17,9 +17,10 @@ class FoodDetailsVC: UIViewController {
     var viewModel = MainViewModel()
 
     var food : Yemekler?
+    var itemCount : String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        foodItemLbl.text = "1"
+        foodItemLbl.text = itemCount ?? "1"
         if let f = food {
             print(f.yemek_fiyat!)
             priceLbl.text = "\(f.yemek_fiyat ?? "")TL"

@@ -13,13 +13,29 @@ class AddToCardVC: UIViewController {
     var cardList = [sepet_yemekler]()
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var nullCardLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    
+   
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("AddToCardVC viewWillAppear tetiklendi")
+        nullCardLbl.isHidden = false
+
+        self.cartListrefresh()
+
+        if cardList.isEmpty {
+            nullCardLbl.isHidden = true
+        }
        
+    }
+    
+    func cartListrefresh(){
         viewModel.allCardList()
-        printContent("addCardVc tetiklenidi")
         _ = viewModel.cardList.subscribe(onNext: { cardList in
             self.cardList = cardList
             DispatchQueue.main.async {
@@ -28,7 +44,6 @@ class AddToCardVC: UIViewController {
          
             
         })
-
     }
     
 

@@ -14,8 +14,10 @@ class MainVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var foodlist = [Yemekler]()
     var viewModel = MainViewModel()
+    var foodCount : String?
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         
         collectionView.dataSource = self
@@ -42,11 +44,14 @@ class MainVC: UIViewController {
                 
         
     }
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail"{
             if let food = sender as? Yemekler {
                 let goToVC = segue.destination as! FoodDetailsVC
                 goToVC.food = food
+                goToVC.itemCount = foodCount
+                foodCount = nil
             }
         }
     }
@@ -63,7 +68,6 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         
         cell.layer.borderWidth = 5.0
         cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
-        
         cell.layer.cornerRadius = 2.0
         cell.layer.shadowOffset = CGSize(width: 0, height: 4)
         cell.layer.shadowColor = UIColor.white.cgColor

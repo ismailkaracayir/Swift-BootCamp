@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -295,9 +294,8 @@
                                                         <constraint firstAttribute="width" constant="40" id="yyr-m0-gFU"/>
                                                     </constraints>
                                                     <buttonConfiguration key="configuration" style="plain" image="A_star">
-                                                        <backgroundConfiguration key="background">
+                                                        <backgroundConfiguration key="background" image="trash">
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <imageReference key="image" image="trash" symbolScale="default"/>
                                                             <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </backgroundConfiguration>
                                                     </buttonConfiguration>
@@ -338,11 +336,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepetinizde Yemek Bulunmuyor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wKx-gU-zp8">
+                                <rect key="frame" x="69" y="436" width="276.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gsw-6b-46d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wKx-gU-zp8" firstAttribute="centerY" secondItem="C9w-UA-tth" secondAttribute="centerY" id="1OS-RZ-NBm"/>
                             <constraint firstItem="fEi-ia-pfF" firstAttribute="leading" secondItem="gsw-6b-46d" secondAttribute="leading" id="Cwm-wT-BEV"/>
+                            <constraint firstItem="wKx-gU-zp8" firstAttribute="centerX" secondItem="C9w-UA-tth" secondAttribute="centerX" id="ENi-2j-KRS"/>
                             <constraint firstItem="aj4-gU-h7h" firstAttribute="leading" secondItem="gsw-6b-46d" secondAttribute="leading" id="Kcy-Le-hOf"/>
                             <constraint firstItem="fEi-ia-pfF" firstAttribute="trailing" secondItem="gsw-6b-46d" secondAttribute="trailing" id="SkD-QB-ZoR"/>
                             <constraint firstItem="aj4-gU-h7h" firstAttribute="trailing" secondItem="gsw-6b-46d" secondAttribute="trailing" id="Uwd-3i-FHa"/>
@@ -356,6 +362,7 @@
                     <navigationItem key="navigationItem" id="WO8-sR-nVH"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="nullCardLbl" destination="wKx-gU-zp8" id="4Pc-cp-KEw"/>
                         <outlet property="tableView" destination="fEi-ia-pfF" id="PO8-Og-DvV"/>
                     </connections>
                 </viewController>
