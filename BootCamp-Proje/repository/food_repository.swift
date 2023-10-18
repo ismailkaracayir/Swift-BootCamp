@@ -27,7 +27,7 @@ class FoodRepositoty{
     
     func addToCard(yemek_adi : String , yemek_fiyat: Int , yemek_resim_adi : String, yemek_siparis_adet: Int)  {
         
-        webServices.addToCard(yemek_adi: yemek_adi, yemek_resim_adi: yemek_resim_adi, yemek_fiyat: yemek_fiyat, yemek_siparis_adet: yemek_siparis_adet)
+         webServices.addToCard(yemek_adi: yemek_adi, yemek_resim_adi: yemek_resim_adi, yemek_fiyat: yemek_fiyat, yemek_siparis_adet: yemek_siparis_adet)
         
          
     }

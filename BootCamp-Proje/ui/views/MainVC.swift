@@ -56,8 +56,14 @@ class MainVC: UIViewController {
         }
     }
     
+    
+    
+    
+    
 }
-extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,CellProtocolFavoriye {
+  
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.foodlist.count
     }
@@ -65,7 +71,9 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let food = self.foodlist[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! CollectionViewCell
-        
+        cell.indexPath = indexPath
+        cell.cellProtocolFavoriye = self
+
         cell.layer.borderWidth = 5.0
         cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
         cell.layer.cornerRadius = 2.0
@@ -89,6 +97,10 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         let food = foodlist[indexPath.row]
         performSegue(withIdentifier: "toDetail", sender: food)
         self.collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    
+    func addFovorite(indexPath: IndexPath) {
+        self.collectionView.reloadData()
     }
 }
 

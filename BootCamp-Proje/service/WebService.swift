@@ -8,12 +8,12 @@
 import Foundation
 import Alamofire
 import RxSwift
-import Dispatch
 
 class WebService {
     var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
     var cardList = BehaviorSubject<[sepet_yemekler]>(value:[sepet_yemekler]())
     let userName = "ismailkara01"
+    var selectCardList : [sepet_yemekler]?
 
     init() {
         allFoodList()
@@ -43,9 +43,7 @@ class WebService {
     
     func addToCard(yemek_adi : String , yemek_resim_adi : String, yemek_fiyat: Int , yemek_siparis_adet: Int)  {
 
-   
         
-        addToCartCheck(yemek_adi: yemek_adi)
         
         print("\(yemek_adi)---\(yemek_resim_adi)---\(yemek_fiyat)---\(yemek_siparis_adet)---\(userName)---")
         let params : Parameters = ["yemek_adi": yemek_adi,"yemek_resim_adi": yemek_resim_adi,"yemek_fiyat":yemek_fiyat,"yemek_siparis_adet":yemek_siparis_adet , "kullanici_adi":userName]
@@ -70,30 +68,27 @@ class WebService {
         
          
     }
-    
-    func addToCartCheck(yemek_adi : String) -> Void {
-        let semaphore = DispatchSemaphore(value: 0)
-
-        DispatchQueue.global().async {
-            print("FONK GELEN YEMEK ADI : \(yemek_adi)")
-            _ = self.cardList.subscribe(onNext: { foodlist in
-                for element in foodlist {
-                    print("FOODLİST GELEN YEMEK ADI : \(element.yemek_adi ?? "boş")")
-
-                    if element.yemek_adi == yemek_adi {
-                        let id = Int(element.sepet_yemek_id!)
-                        self.deleteFood(sepet_yemek_id: id!)
-                    }
-                }
-            })
-            semaphore.signal()
-        }
-        semaphore.wait()
-
-    }
+  /*
+   
+   func addToCartCheck(yemek_adi : String)  {
+               print("FONK GELEN YEMEK ADI : \(yemek_adi)")
+               _ = self.cardList.subscribe(onNext: { foodlist in
+                   for element in foodlist {
+                       print("FOODLİST GELEN YEMEK ADI : \(element.yemek_adi ?? "boş")")
+                       if element.yemek_adi == yemek_adi {
+                           let id = Int(element.sepet_yemek_id!)
+                            self.deleteFood(sepet_yemek_id: id!)
+                       }
+                   }
+               })
+   }
+   
+   */
     
     
     func allCardList (){
+        print("allCardList fonk çalıştı ")
+
         let param : Parameters = ["kullanici_adi":userName]
        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php",method: .post,parameters: param).response {
            response in
@@ -104,6 +99,8 @@ class WebService {
                    let response = try JSONDecoder().decode(Welcome2.self, from: data)
                    if let list = response.sepet_yemekler {
                        self.cardList.onNext(list)
+                       self.selectCardList = list
+                   
                        
                    }
                }catch{

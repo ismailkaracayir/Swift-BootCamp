@@ -18,8 +18,10 @@ class FoodDetailsVC: UIViewController {
 
     var food : Yemekler?
     var itemCount : String?
+    var cardFoodList : [sepet_yemekler]?
     override func viewDidLoad() {
         super.viewDidLoad()
+     
         foodItemLbl.text = itemCount ?? "1"
         if let f = food {
             print(f.yemek_fiyat!)
@@ -35,6 +37,15 @@ class FoodDetailsVC: UIViewController {
 
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear çalıştı")
+        viewModel.allCardList() // sayfa geçişlerinde bu fonk tekrar çağırarak her seferinde cardlist içini güncelledim
+        _ = viewModel.cardList.subscribe(onNext: { cardList in
+            self.cardFoodList = cardList
+        })
+  
     }
     
 
@@ -58,11 +69,26 @@ class FoodDetailsVC: UIViewController {
      
     }
  
-    @IBAction func addToCartBtn(_ sender: Any) {
+    @IBAction func addToCartBtn(_ sender: Any)  {
         print("AddToCart btn tıklandı")
         if let name = nameLbl.text , let price = Int(food?.yemek_fiyat ?? "") ,let itemCount = Int(foodItemLbl.text!), let url = self.food?.yemek_resim_adi{
-            self.viewModel.addToCard(yemek_adi: name,yemek_fiyat: price, yemek_resim_adi: url, yemek_siparis_adet: itemCount)
+             self.addToCartAsync(yemek_adi: name,yemek_fiyat: price, yemek_resim_adi: url, yemek_siparis_adet: itemCount)
         }
     }
     
+    func addToCartAsync(yemek_adi: String, yemek_fiyat: Int, yemek_resim_adi: String, yemek_siparis_adet: Int) {
+        if let myCardList = self.cardFoodList {
+            for item in myCardList {
+                if let myFoodName = item.yemek_adi, let id = Int(item.sepet_yemek_id!){
+                    print("\(myFoodName)-----\(yemek_adi)")
+                    if myFoodName == yemek_adi {
+                        self.viewModel.deleteFood(sepet_yemek_id:id)
+                        break
+                    }}}}
+            self.viewModel.addToCard(yemek_adi: yemek_adi, yemek_fiyat: yemek_fiyat, yemek_resim_adi: yemek_resim_adi, yemek_siparis_adet: yemek_siparis_adet)
+       
+       
+    }
+    
 }
+

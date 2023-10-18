@@ -9,47 +9,53 @@ import UIKit
 import Kingfisher
 
 class AddToCardVC: UIViewController {
+    @IBOutlet weak var allCardPriceLbl: UILabel!
     var viewModel = MainViewModel()
     var cardList = [sepet_yemekler]()
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var nullCardLbl: UILabel!
+    var allPrice : Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+  
+
+    }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.cartListrefresh()
    
 
     }
-    override func viewWillAppear(_ animated: Bool) {
-        print("AddToCardVC viewWillAppear tetiklendi")
-        nullCardLbl.isHidden = false
 
-        self.cartListrefresh()
-
-        if cardList.isEmpty {
-            nullCardLbl.isHidden = true
-        }
-       
-    }
-    
     func cartListrefresh(){
         viewModel.allCardList()
         _ = viewModel.cardList.subscribe(onNext: { cardList in
             self.cardList = cardList
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-            }
-         
-            
-        })
+                for item in cardList {
+                    if let price = Int(item.yemek_fiyat!) ,let item = Int(item.yemek_siparis_adet!){
+                        self.allPrice = self.allPrice + (item * price)
+                    }
+                   
+                }
+                self.allCardPriceLbl.text = "\(String(self.allPrice)) TL"
+                self.allPrice = 0
+            }})
+    
     }
     
 
  
-
+    @IBAction func cardConfirmBtn(_ sender: Any) {
+   
+    }
+    
+    
 }
+
 
 extension AddToCardVC : UITableViewDelegate ,UITableViewDataSource ,CellProtocol {
    
