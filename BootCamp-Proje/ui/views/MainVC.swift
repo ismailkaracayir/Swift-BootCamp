@@ -23,10 +23,12 @@ class MainVC: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        viewModel.getCoreDataList()
         _ = viewModel.foodList.subscribe(onNext: { foodList in
             self.foodlist = foodList
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
+
                 print("arayüz tetiklendi")
             }
             

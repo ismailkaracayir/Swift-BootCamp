@@ -7,7 +7,12 @@
 
 import UIKit
 
+
+
+
 class FavoriteVC: UIViewController {
+ 
+    
 
     @IBOutlet weak var tableView: UITableView!
     var favList = [Yemekcore]()

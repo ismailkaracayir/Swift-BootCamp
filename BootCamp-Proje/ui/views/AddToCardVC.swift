@@ -8,7 +8,10 @@
 import UIKit
 import Kingfisher
 
+
 class AddToCardVC: UIViewController {
+   
+    
     @IBOutlet weak var allCardPriceLbl: UILabel!
     var viewModel = MainViewModel()
     var cardList = [sepet_yemekler]()
@@ -38,6 +41,9 @@ class AddToCardVC: UIViewController {
                 for item in cardList {
                     if let price = Int(item.yemek_fiyat!) ,let item = Int(item.yemek_siparis_adet!){
                         self.allPrice = self.allPrice + (item * price)
+                        self.tabBarItem.badgeValue = String(cardList.count)
+                       
+
                     }
                    
                 }
@@ -107,7 +113,7 @@ extension AddToCardVC : UITableViewDelegate ,UITableViewDataSource ,CellProtocol
         let okAction = UIAlertAction(title: "Tamam", style: .default) { action in
             let price = Int(deleteFood.sepet_yemek_id!)
             self.viewModel.deleteFood(sepet_yemek_id:price!)
-            self.tableView.reloadData()
+      
         }
         let cancelAction = UIAlertAction(title: "Vazgeç", style: .cancel) { action in
 

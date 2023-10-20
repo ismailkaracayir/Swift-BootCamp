@@ -20,6 +20,7 @@ class WebService {
     
     init() {
         allFoodList()
+        //allCardList()
         
     }
     
