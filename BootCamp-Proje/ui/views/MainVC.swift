@@ -13,6 +13,7 @@ class MainVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var foodlist = [Yemekler]()
+    var favFoodList = [Yemekcore]()
     var viewModel = MainViewModel()
     var foodCount : String?
     override func viewDidLoad() {
@@ -29,7 +30,12 @@ class MainVC: UIViewController {
                 print("arayüz tetiklendi")
             }
             
-        })
+        }
+        )
+  
+        
+        
+        
         
         
         let collectionvewLayout = UICollectionViewFlowLayout()
@@ -82,6 +88,7 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         cell.layer.shadowColor = UIColor.white.cgColor
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 5.0
+        
         if let starFillImage = UIImage(systemName: "star") {
             cell.fovoriteBtnClick.setImage(starFillImage, for: .normal)
         }
@@ -113,7 +120,7 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
                 cell.isActive = true
                 let food = foodlist[indexPath.row]
                 print("favori eklenen yemek : \(food.yemek_adi!)")
-                
+                self.viewModel.saveLocaleDatabase(food: food)
               
                 // coredate ekleme kısmı burda olacak
                }
@@ -121,6 +128,11 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
             if let starFillImage = UIImage(systemName: "star") {
                    cell.fovoriteBtnClick.setImage(starFillImage, for: .normal)
                 cell.isActive = false
+                let food = foodlist[indexPath.row]
+                print("favori silinen yemek : \(food.yemek_adi!)")
+                if let name = food.yemek_adi {
+                    self.viewModel.deleteCoreDate(foodName:name)
+                }
                 // coredata cıkarma kısmı burda yapılcak
                }
         }

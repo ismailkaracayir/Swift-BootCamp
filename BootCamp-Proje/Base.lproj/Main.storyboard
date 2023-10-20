@@ -227,14 +227,113 @@
                     <view key="view" contentMode="scaleToFill" id="OTT-Uh-rqe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKF-QY-PeZ">
+                                <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                    <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textShadowColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Favoriler" id="wZE-Vo-LE2">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="a0e-me-nam">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mAw-XG-uFh">
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="favCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favCell" id="QAT-v0-y9p" customClass="FavoriTableViewCell" customModule="BootCamp_Proje" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QAT-v0-y9p" id="1k4-F3-eEX">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="A_star" translatesAutoresizingMaskIntoConstraints="NO" id="Zaz-VI-kZA">
+                                                    <rect key="frame" x="20" y="11" width="125" height="125"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="Aya-Hf-Uh3"/>
+                                                        <constraint firstAttribute="height" constant="125" id="qct-aQ-oSo"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Izgara Somon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btu-XA-jYm">
+                                                    <rect key="frame" x="165" y="11" width="147" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rX-wR-nKO">
+                                                    <rect key="frame" x="165" y="104" width="114" height="35"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="gray" title="Sepete Ekle" cornerStyle="fixed">
+                                                        <backgroundConfiguration key="background" cornerRadius="18"/>
+                                                        <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="baseBackgroundColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="addToCardBtn:" destination="QAT-v0-y9p" eventType="touchUpInside" id="HsM-8R-9mB"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5J-V6-6D3">
+                                                    <rect key="frame" x="368" y="11" width="46" height="34"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Button" image="xmark" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="filled" image="xmark" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deleteFavBtn:" destination="QAT-v0-y9p" eventType="touchUpInside" id="Y4E-RC-Igd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zaz-VI-kZA" firstAttribute="leading" secondItem="1k4-F3-eEX" secondAttribute="leadingMargin" id="529-8q-dj0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="9rX-wR-nKO" secondAttribute="bottom" id="AAK-0h-6mo"/>
+                                                <constraint firstItem="9rX-wR-nKO" firstAttribute="leading" secondItem="Btu-XA-jYm" secondAttribute="leading" id="Cfl-gR-lac"/>
+                                                <constraint firstAttribute="trailing" secondItem="k5J-V6-6D3" secondAttribute="trailing" id="Ic0-J5-5l9"/>
+                                                <constraint firstItem="Btu-XA-jYm" firstAttribute="leading" secondItem="Zaz-VI-kZA" secondAttribute="trailing" constant="20" id="U8D-3w-Agt"/>
+                                                <constraint firstItem="Btu-XA-jYm" firstAttribute="top" secondItem="1k4-F3-eEX" secondAttribute="topMargin" id="emk-KS-LjV"/>
+                                                <constraint firstItem="k5J-V6-6D3" firstAttribute="top" secondItem="Btu-XA-jYm" secondAttribute="top" id="jaI-U8-hEh"/>
+                                                <constraint firstItem="Zaz-VI-kZA" firstAttribute="top" secondItem="1k4-F3-eEX" secondAttribute="topMargin" id="krQ-KI-nGQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="FoodİmageView" destination="Zaz-VI-kZA" id="7Fj-Ie-bLL"/>
+                                            <outlet property="foodNameLbl" destination="Btu-XA-jYm" id="csH-pL-gNE"/>
+                                            <outlet property="imageView" destination="Zaz-VI-kZA" id="Dvp-Nj-ApA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xe3-17-ltP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mAw-XG-uFh" firstAttribute="top" secondItem="nKF-QY-PeZ" secondAttribute="bottom" id="5Tz-f7-QU9"/>
+                            <constraint firstItem="nKF-QY-PeZ" firstAttribute="trailing" secondItem="xe3-17-ltP" secondAttribute="trailing" id="8lb-Qe-bRN"/>
+                            <constraint firstItem="xe3-17-ltP" firstAttribute="trailing" secondItem="mAw-XG-uFh" secondAttribute="trailing" id="KqE-66-Pxt"/>
+                            <constraint firstItem="nKF-QY-PeZ" firstAttribute="top" secondItem="xe3-17-ltP" secondAttribute="top" id="OSt-pS-Cqk"/>
+                            <constraint firstItem="mAw-XG-uFh" firstAttribute="leading" secondItem="xe3-17-ltP" secondAttribute="leading" id="R03-NV-dtT"/>
+                            <constraint firstItem="nKF-QY-PeZ" firstAttribute="leading" secondItem="xe3-17-ltP" secondAttribute="leading" id="hlD-p8-rFz"/>
+                            <constraint firstItem="xe3-17-ltP" firstAttribute="bottom" secondItem="mAw-XG-uFh" secondAttribute="bottom" id="xCt-Hv-fl1"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favori" image="star" catalog="system" id="wN8-m5-u3H"/>
+                    <connections>
+                        <outlet property="tableView" destination="mAw-XG-uFh" id="66M-Ia-u3y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxA-Pb-30y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="642" y="1116"/>
+            <point key="canvasLocation" x="640.57971014492762" y="1115.625"/>
         </scene>
         <!--Sepet-->
         <scene sceneID="l4m-8p-zG6">
@@ -669,6 +768,7 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="trash" width="512" height="512"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

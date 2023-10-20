@@ -26,6 +26,7 @@
 		A2920D6F2AD968080097D557 /* FoodDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D6E2AD968080097D557 /* FoodDetailsVC.swift */; };
 		A2920D712AD9684D0097D557 /* AddToCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D702AD9684D0097D557 /* AddToCardVC.swift */; };
 		A2920D732ADA7B8D0097D557 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D722ADA7B8D0097D557 /* FavoriteVC.swift */; };
+		A2DCFF912AE28BE10003D6DF /* FavoriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCFF902AE28BE10003D6DF /* FavoriTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A2920D6E2AD968080097D557 /* FoodDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsVC.swift; sourceTree = "<group>"; };
 		A2920D702AD9684D0097D557 /* AddToCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCardVC.swift; sourceTree = "<group>"; };
 		A2920D722ADA7B8D0097D557 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		A2DCFF902AE28BE10003D6DF /* FavoriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				A23C434D2ADABF6100C766E9 /* CollectionViewCell.swift */,
 				A23C43602ADD421B00C766E9 /* TableViewCell.swift */,
+				A2DCFF902AE28BE10003D6DF /* FavoriTableViewCell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				A23C43502ADADD3600C766E9 /* foodModel.swift in Sources */,
 				A2920D562AD965A20097D557 /* MainVC.swift in Sources */,
 				A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */,
+				A2DCFF912AE28BE10003D6DF /* FavoriTableViewCell.swift in Sources */,
 				A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */,
 				A2920D6F2AD968080097D557 /* FoodDetailsVC.swift in Sources */,
 				A23C434E2ADABF6100C766E9 /* CollectionViewCell.swift in Sources */,

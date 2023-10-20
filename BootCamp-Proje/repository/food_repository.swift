@@ -10,6 +10,8 @@ import RxSwift
 class FoodRepositoty{
     var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
     var cardList = BehaviorSubject<[sepet_yemekler]>(value:[sepet_yemekler]())
+    var coreDataFoodList = BehaviorSubject<[Yemekcore]>(value:[Yemekcore]())
+
 
      var webServices = WebService()
     
@@ -17,6 +19,19 @@ class FoodRepositoty{
     init() {
         foodList = webServices.foodList
         cardList = webServices.cardList
+        coreDataFoodList = webServices.coreDataFoodList
+    }
+    func saveLocaleDatabase(food : Yemekler) -> Void {
+
+        webServices.saveLocaleDatabase(food: food)
+    
+    }
+    func deleteCoreDate (foodName:String){
+        webServices.deleteCoreDate(foodName: foodName)
+    }
+
+    func getCoreDataList()  {
+        webServices.getCoreDataList()
     }
     
     func allFoodList (){

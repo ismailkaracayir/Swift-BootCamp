@@ -10,12 +10,29 @@ import RxSwift
 class MainViewModel {
     var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
     var cardList = BehaviorSubject<[sepet_yemekler]>(value:[sepet_yemekler]())
+    var coreDataFoodList = BehaviorSubject<[Yemekcore]>(value:[Yemekcore]())
+
 
     var foodRepo = FoodRepositoty()
     init() {
         foodList = foodRepo.foodList
         cardList = foodRepo.cardList
+        coreDataFoodList = foodRepo.coreDataFoodList
     }
+    
+    func saveLocaleDatabase(food : Yemekler) -> Void {
+
+        foodRepo.saveLocaleDatabase(food: food)
+    
+    }
+    func deleteCoreDate (foodName:String){
+        foodRepo.deleteCoreDate(foodName: foodName)
+    }
+
+    func getCoreDataList()  {
+        foodRepo.getCoreDataList()
+    }
+    
     
     
     func allFoodList (){

@@ -8,16 +8,69 @@
 import Foundation
 import Alamofire
 import RxSwift
-
+import CoreData
 class WebService {
     var foodList = BehaviorSubject<[Yemekler]>(value:[Yemekler]())
     var cardList = BehaviorSubject<[sepet_yemekler]>(value:[sepet_yemekler]())
+    var coreDataFoodList = BehaviorSubject<[Yemekcore]>(value:[Yemekcore]())
+
     let userName = "ismailkara01"
     var selectCardList : [sepet_yemekler]?
-
+    let context = appDelegate.persistentContainer.viewContext
+    
     init() {
         allFoodList()
+        
     }
+    
+    func saveLocaleDatabase(food : Yemekler) -> Void {
+
+             let saveFood = Yemekcore(context: context)
+                saveFood.yemek_adi = food.yemek_adi
+                saveFood.yemek_fiyat =  food.yemek_fiyat
+                saveFood.yemek_resim_adi = food.yemek_resim_adi
+            appDelegate.saveContext()
+            print("CoreDate Kayıt olma işlemi Başarılı")
+        
+    
+    }
+    func deleteCoreDate (foodName:String){
+        if let food = fetchYemek(withName: foodName){
+            context.delete(food)
+        }
+        getCoreDataList()
+        print("Silme işlemi başarılı")
+    }
+    // adını bildigimiz nesneyi döndürür
+    func fetchYemek(withName name: String) -> Yemekcore? {
+        let fetchRequest: NSFetchRequest<Yemekcore> = Yemekcore.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "yemek_adi == %@", name)
+
+        do {
+            let result = try context.fetch(fetchRequest)
+            return result.first
+        } catch {
+            print("Hata: Veri sorgulanırken hata oluştu - \(error)")
+            return nil
+        }
+    }
+
+    
+    func getCoreDataList()  {
+        do{
+            let list = try context.fetch(Yemekcore.fetchRequest())
+            for item in list {
+
+                print(item.yemek_adi!)
+                }
+            coreDataFoodList.onNext(list)
+            
+        }catch{
+            print("CoreDate verileri Getirilirken hata oluştu  :  \(error.localizedDescription)")
+        }
+    }
+    
+    
     
     func allFoodList (){
          print("web servis çalıştı")
