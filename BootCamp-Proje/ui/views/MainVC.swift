@@ -71,9 +71,10 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let food = self.foodlist[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FoodCell", for: indexPath) as! CollectionViewCell
+        
         cell.indexPath = indexPath
         cell.cellProtocolFavoriye = self
-
+        
         cell.layer.borderWidth = 5.0
         cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
         cell.layer.cornerRadius = 2.0
@@ -81,7 +82,12 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         cell.layer.shadowColor = UIColor.white.cgColor
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 5.0
+        if let starFillImage = UIImage(systemName: "star") {
+            cell.fovoriteBtnClick.setImage(starFillImage, for: .normal)
+        }
+       
 
+       
         cell.foodNameLbl.text = food.yemek_adi
         cell.priceLbl.text = "\(food.yemek_fiyat!) TL"
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)"){
@@ -100,7 +106,24 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
     }
     
     func addFovorite(indexPath: IndexPath) {
-        self.collectionView.reloadData()
+        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+        if cell.isActive == false {
+            if let starFillImage = UIImage(systemName: "star.fill") {
+                   cell.fovoriteBtnClick.setImage(starFillImage, for: .normal)
+                cell.isActive = true
+                let food = foodlist[indexPath.row]
+                print("favori eklenen yemek : \(food.yemek_adi!)")
+                
+              
+                // coredate ekleme kısmı burda olacak
+               }
+        }else{
+            if let starFillImage = UIImage(systemName: "star") {
+                   cell.fovoriteBtnClick.setImage(starFillImage, for: .normal)
+                cell.isActive = false
+                // coredata cıkarma kısmı burda yapılcak
+               }
+        }
     }
 }
 
