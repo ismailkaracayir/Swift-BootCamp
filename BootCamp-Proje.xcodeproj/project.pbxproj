@@ -16,6 +16,7 @@
 		A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */; };
 		A23C435F2ADAF2D400C766E9 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A23C435E2ADAF2D400C766E9 /* Kingfisher */; };
 		A23C43612ADD421B00C766E9 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23C43602ADD421B00C766E9 /* TableViewCell.swift */; };
+		A25FCFB52AE3CCD40043B186 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25FCFB42AE3CCD40043B186 /* CustomNavigationController.swift */; };
 		A2920D522AD965A20097D557 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D512AD965A20097D557 /* AppDelegate.swift */; };
 		A2920D542AD965A20097D557 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D532AD965A20097D557 /* SceneDelegate.swift */; };
 		A2920D562AD965A20097D557 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2920D552AD965A20097D557 /* MainVC.swift */; };
@@ -36,6 +37,7 @@
 		A23C43592ADAEACF00C766E9 /* food_repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = food_repository.swift; sourceTree = "<group>"; };
 		A23C435B2ADAEBAD00C766E9 /* main_viewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main_viewmodel.swift; sourceTree = "<group>"; };
 		A23C43602ADD421B00C766E9 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		A25FCFB42AE3CCD40043B186 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		A2920D4E2AD965A20097D557 /* BootCamp-Proje.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BootCamp-Proje.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2920D512AD965A20097D557 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2920D532AD965A20097D557 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 				A2DCFF902AE28BE10003D6DF /* FavoriTableViewCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		A25FCFB32AE3CC660043B186 /* navigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				A25FCFB42AE3CCD40043B186 /* CustomNavigationController.swift */,
+			);
+			path = navigationBar;
 			sourceTree = "<group>";
 		};
 		A2920D452AD965A20097D557 = {
@@ -144,6 +154,7 @@
 		A2920D6C2AD966680097D557 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				A25FCFB32AE3CC660043B186 /* navigationBar */,
 				A23C434C2ADABF3900C766E9 /* cell */,
 				A2920D6D2AD967010097D557 /* views */,
 				A2920D692AD9661B0097D557 /* veiwModel */,
@@ -249,6 +260,7 @@
 				A23C435A2ADAEACF00C766E9 /* food_repository.swift in Sources */,
 				A2DCFF912AE28BE10003D6DF /* FavoriTableViewCell.swift in Sources */,
 				A23C435C2ADAEBAD00C766E9 /* main_viewmodel.swift in Sources */,
+				A25FCFB52AE3CCD40043B186 /* CustomNavigationController.swift in Sources */,
 				A2920D6F2AD968080097D557 /* FoodDetailsVC.swift in Sources */,
 				A23C434E2ADABF6100C766E9 /* CollectionViewCell.swift in Sources */,
 				A2920D522AD965A20097D557 /* AppDelegate.swift in Sources */,

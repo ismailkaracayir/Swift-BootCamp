@@ -24,6 +24,7 @@ class AddToCardVC: UIViewController {
   
 
     }
+  
     
     override func viewWillAppear(_ animated: Bool) {
         self.cartListrefresh()
@@ -68,20 +69,14 @@ extension AddToCardVC : UITableViewDelegate ,UITableViewDataSource ,CellProtocol
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cardList.count
     }
+
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let food = cardList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell") as! TableViewCell
 
-        cell.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
-        
-        cell.layer.cornerRadius = 2.0
-        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-        cell.layer.shadowColor = UIColor.white.cgColor
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowRadius = 5.0
+       
         cell.cellProtocol = self
         cell.indexPath = indexPath
         cell.foodNameLbl.text = food.yemek_adi
@@ -101,9 +96,7 @@ extension AddToCardVC : UITableViewDelegate ,UITableViewDataSource ,CellProtocol
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 130
-    }
+ 
     
     // my protocol
     func deleteCell(indexPath: IndexPath) {

@@ -9,7 +9,9 @@ import UIKit
 import Kingfisher
 
 class MainVC: UIViewController {
+    @IBOutlet var parentsView: UIView!
     
+    @IBOutlet weak var backroundView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     var foodlist = [Yemekler]()
@@ -18,9 +20,25 @@ class MainVC: UIViewController {
     var foodCount : String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        collectionView.backgroundColor = UIColor.clear
+        backroundView.backgroundColor = UIColor.clear
+        searchBar.backgroundColor = UIColor.clear
+/*
+ 
+ let gradientLayer = CAGradientLayer()
+ gradientLayer.type = .radial
+ gradientLayer.frame = backroundView.bounds
+ gradientLayer.locations = [ 0.1,  1 ]
+ gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.5)
+ gradientLayer.endPoint =  CGPoint(x: 1, y: 1)
+ gradientLayer.colors = [UIColor.white.cgColor,
+  UIColor.systemOrange.withAlphaComponent(0.1).cgColor,]
 
+ */
         
-        
+        navigationItem.title = "Hoş Geldiniz..."
         collectionView.dataSource = self
         collectionView.delegate = self
         viewModel.getCoreDataList()
@@ -30,16 +48,9 @@ class MainVC: UIViewController {
                 self.collectionView.reloadData()
 
                 print("arayüz tetiklendi")
-            }
-            
-        }
-        )
+            }})
   
-        
-        
-        
-        
-        
+        // colectionview tasarım
         let collectionvewLayout = UICollectionViewFlowLayout()
         collectionvewLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         collectionvewLayout.minimumLineSpacing = 10
@@ -84,10 +95,10 @@ extension MainVC : UICollectionViewDelegate,UICollectionViewDataSource, UICollec
         cell.cellProtocolFavoriye = self
         
         cell.layer.borderWidth = 5.0
-        cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.1).cgColor
-        cell.layer.cornerRadius = 2.0
-        cell.layer.shadowOffset = CGSize(width: 0, height: 4)
-        cell.layer.shadowColor = UIColor.white.cgColor
+        cell.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.3).cgColor
+        cell.layer.cornerRadius = 10.0
+        cell.layer.shadowOffset = CGSize(width: 0, height: 2)
+        cell.layer.shadowColor = UIColor.orange.cgColor
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowRadius = 5.0
         

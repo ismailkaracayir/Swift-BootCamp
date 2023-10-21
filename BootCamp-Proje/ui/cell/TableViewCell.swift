@@ -25,6 +25,19 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
 
     }
+    // Inside UITableViewCell subclass
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.layer.borderWidth = 2.0
+        contentView.layer.borderColor = UIColor.systemOrange.withAlphaComponent(0.3).cgColor
+        contentView.layer.cornerRadius = 30.0
+        contentView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        contentView.layer.shadowColor = UIColor.white.cgColor
+        contentView.layer.shadowOpacity = 0.5
+        contentView.layer.shadowRadius = 5.0
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
